@@ -8,6 +8,8 @@ set :bind, '0.0.0.0'
 set :logging, true
  
 get '/' do
+  @jon = redis.get "jon"
+  @lena = redis.get "lena"
   @count = redis.incr "count"
   erb :index
 end
